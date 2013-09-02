@@ -13,9 +13,12 @@ module OmniAuth
       option :client_options, {
         :site => 'https://jawbone.com',
         :authorize_url => '/auth/oauth2/auth',
-        :response_type => 'code',
-        :scope => 'extended_read',
         :token_url => '/auth/oauth2/token'
+      }
+      
+      option :authorize_options, [
+        :response_type => 'code',
+        :scope => 'extended_read'
       }
 
       uid { raw_info['xid'].to_s }
