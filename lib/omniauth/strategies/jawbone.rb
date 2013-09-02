@@ -15,11 +15,11 @@ module OmniAuth
         :authorize_url => '/auth/oauth2/auth',
         :token_url => '/auth/oauth2/token'
       }
-      
+
       option :authorize_options, [
         :response_type => 'code',
         :scope => 'extended_read'
-      }
+      ]
 
       uid { raw_info['xid'].to_s }
 
