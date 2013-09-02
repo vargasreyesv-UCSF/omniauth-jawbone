@@ -17,9 +17,18 @@ module OmniAuth
       }
 
       option :authorize_options, [
-        :response_type => 'code',
-        :scope => 'extended_read'
+        :scope
       ]
+
+      def request_phase
+        req = Rack::Request.new(@env)
+        options.update(req.params)
+        ua = req.user_agent.to_s
+        if !options.has_key?(:scope)
+          options[:scope] = 'extended_read'
+        end
+        super
+      end
 
       uid { raw_info['xid'].to_s }
 
