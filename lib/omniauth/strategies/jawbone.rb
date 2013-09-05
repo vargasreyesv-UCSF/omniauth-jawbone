@@ -30,18 +30,6 @@ module OmniAuth
         super
       end
 
-      #uid { raw_info['xid'].to_s }
-
-      info do
-        {
-          'id' => raw_info['xid'],
-          'photo' => raw_info['photo'],
-          'first_name' => raw_info['first'],
-          'last_name' => raw_info['last'],
-        }
-      end
-
-
       def user_data
         access_token.options[:mode] = :query
         user_data ||= access_token.get('/nudge/api/users/@me').parsed
