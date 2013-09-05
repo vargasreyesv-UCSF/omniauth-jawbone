@@ -11,7 +11,7 @@ module OmniAuth
     class Jawbone < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-        :site => 'https://jawbone.com',
+        :site => 'http://jawbone.com',
         :authorize_url => '/auth/oauth2/auth',
         :token_url => '/auth/oauth2/token'
       }
