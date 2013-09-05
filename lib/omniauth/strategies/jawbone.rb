@@ -30,7 +30,7 @@ module OmniAuth
         super
       end
 
-      uid { raw_info['xid'].to_s }
+      #uid { raw_info['xid'].to_s }
 
       info do
         {
